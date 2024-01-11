@@ -1,13 +1,18 @@
-const gameBoard = require('./gameBoard')
+const GameBoard = require('./gameBoard');
 
 test('2D board works', () => {
-    let testBoard = new gameBoard('test')
-    testBoard.board[3][5] = 'hello world'
-    expect(testBoard.board).toEqual('hello world')
-})
+  const testBoard = new GameBoard('test');
+  testBoard.board[3][5] = 'hello world';
+  expect(testBoard.board[3][5]).toEqual('hello world');
+});
 
 test('places ship in correct area', () => {
-    let newBoard = new gameBoard('newBoard')
-    newBoard.placeShip([2][4], 'submarine')
-    expect(newBoard.board[2][4]).toBe('submarine')
+  const newBoard = new GameBoard('newBoard');
+  newBoard.placeShip([2], [4], 'submarine');
+  expect(newBoard.board[2][4]).toBe('submarine');
+});
+
+test('recieves attacks', () => {
+    const newBoard = new GameBoard('test')
+    let newShip = new Ship('testShip', 3);
 })
